@@ -1,0 +1,19 @@
+<hibernate-configuration>
+
+<session-factory>
+    <property nome="hibernate.conexao.drive_class">com.mysql.cj.jdbc.Driver</property>
+    // Definição da conexão e do banco
+    <property nome="hibernate.connection.url">jdbc:mysql://localhost:3306/clientes_crud</property>
+    // Usuário e Senha do Banco de dados
+    <property nome="hibernate.connection.username">root</property>
+    <property nome="hibernate.connection.password">823572#Nr</property>
+    // informa ao Hibernate qual é o banco de dados
+    <property nome="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+    // Controla o comportamento do Hibernate em relação ao banco de dados (objetos Java que representam tabelas)
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    // Auxiliar na depuração e impressão no console os comandos sql
+    <property nome="hibernate.show_sql">true</property>
+    <mapping class="entidade.Cliente"/>
+    <session-factory>
+
+</hibernate-configuration>
