@@ -1,19 +1,18 @@
-package entidade; // pacote para a classe cliente
+package com.hibernate.tcd.model; // pacote para a classe cliente
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente {
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String email;
     private String telefone;
 
+    // Métodos Getters e Setters
     public Integer getId() {
         return id;
     }
