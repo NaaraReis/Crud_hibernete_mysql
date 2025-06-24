@@ -1,10 +1,10 @@
 package dao;
 
 import entidade.Cliente;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import javax.hibernate.Session;
+import javax.hibernate.SessionFactory;
+import javax.hibernate.Transaction;
+import javax.hibernate.cfg.Configuration;
 import java.util.List;
 
 public class ClienteDAO {
@@ -62,6 +62,16 @@ public class ClienteDAO {
         } catch (Exception e) {
             if (tx != null) tx.rollback();
             System.err.println("Erro ao excluir cliente: " + e.getMessage());
+        }
+    }
+    // Médoto para buscar cliente por id
+    public Cliente buscarPorId(int id) {
+        try (Session session = sessionFactory.openSession()) {
+            // Busca um cliente pelo ID. 'get' retorna null se não encontrar.
+            return session.get(Cliente.class, id);
+        } catch (Exception e) {
+            System.err.println("Erro ao buscar cliente: " + e.getMessage());
+            return null;
         }
     }
 }
